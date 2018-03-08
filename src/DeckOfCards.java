@@ -13,7 +13,7 @@ public class DeckOfCards {
         for (int i = 0; i < DECK_SIZE; i++) {
             // This is logic of card representation
             // ex: 13%13+1 = 1 1 is Ace 13/13+1 = 2 this is CLUBS
-            deck.add(new Card(i%13+1,(i/13)+1));
+            deck.add(new Card(i%13,(i/13)));
         }
 
         shuffleDeck();
