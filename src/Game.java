@@ -2,27 +2,34 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  * Created by sahar.shukrun on 2/13/2018.
  */
 public class Game extends JPanel{
 
-    DeckOfCards gameDeck = null;
-    DeckOfCards player1 = null;
-    DeckOfCards player1Deck = null;
-    DeckOfCards player2 = null;
-    DeckOfCards player2Deck = null;
-
-    public Game() {
-        DeckOfCards d = new DeckOfCards();
-        player1Deck.setDeck(d.splitDeck());
-        player2Deck.setDeck(d.getDeck());
-    }
-
 
     public static void main(String [] args) throws IOException {
-        DeckOfCards d = new DeckOfCards();
+        JOptionPane.showMessageDialog(null,
+                "Welcome to Java");
+
+        String st;
+        st = JOptionPane.showInputDialog(
+        "Enter your name");
+
+        System.out.println(st);
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+                "Do you wanna close the window?",
+                "Choose",
+                JOptionPane.YES_NO_OPTION);
+        System.out.println(selectedOption);
+        if (selectedOption == 1) {
+            System.out.println("NO");
+        }
+        JOptionPane.showMessageDialog(null,
+                "Welcome to Java");
+        System.exit(0);
     }
 
 

@@ -27,7 +27,7 @@ public class Card implements Comparable<Card>{
     }
 
     public int getRank() {
-        if (rank == 1) {
+        if (rank == 0) { // Ace
             return 13;
         }
         return rank;

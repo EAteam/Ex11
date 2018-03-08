@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -34,8 +35,7 @@ public class War {
         }
         return true;
     }
-
-    public static void main(String [] args) {
+    public static void play() {
         War game = new War();
         int state = 0;
         int counter = 0;
@@ -56,24 +56,27 @@ public class War {
             Card p2 = game.player2Deck.getCard();
 
             if (state == 1 && counter > 0) {
+                System.out.println("Add Card to deck");
                 counter --;
                 game.gameDeck.addCard(p1);
                 game.gameDeck.addCard(p2);
                 continue;
             }
+
+            System.out.println(String.format("Player 1 card:%s vs Player 2 card:%s", p1.getRankString() +"["+ p1.getSuitString()+"]", p2.getRankString() +"["+ p2.getSuitString()+"]"));
             //System.out.println(p1.getRank()+" vs "+ p2.getRank());
             int res = p1.compareTo(p2);
             switch (res) {
                 case 0:
                     state = 1; // war state
-                    System.out.println("Draw");
+                    System.out.println("War");
                     game.gameDeck.addCard(p1);
                     game.gameDeck.addCard(p2);
                     counter = 3;
                     break;
                 case 1:
                     state = 0;
-                    System.out.println("P1 get cards");
+                    System.out.println("Player 1 get cards");
                     game.player1.addCard(p1);
                     game.player1.addCard(p2);
                     if (state == 1) {
@@ -82,7 +85,7 @@ public class War {
                     break;
                 case -1:
                     state = 0;
-                    System.out.println("P2 get cards");
+                    System.out.println("Player 2 get cards");
                     game.player2.addCard(p1);
                     game.player2.addCard(p2);
                     if (state == 1) {
@@ -94,5 +97,21 @@ public class War {
             }
 
         }
+        return;
+    }
+    public static void main(String [] args) {
+        while(true) {
+            int selectedOption = JOptionPane.showConfirmDialog(null,
+                    "Do you start new game?",
+                    "Choose",
+                    JOptionPane.YES_NO_OPTION);
+            if (selectedOption == 1) {
+                System.exit(0);
+            } else {
+                play();
+            }
+
+        }
+
     }
 }
