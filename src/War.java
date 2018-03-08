@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 /**
- * Created by sahar.shukrun on 3/4/2018.
+ * Created by John Smith on 3/4/2018.
  */
 public class War {
     DeckOfCards gameDeck = null;

@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by sahar.shukrun on 3/4/2018.
+ * Created by John Smith on 3/4/2018.
  */
 public class Card implements Comparable<Card>{
     private final int rank;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- * Created by sahar.shukrun on 2/13/2018.
+ * Created by John Smith on 3/4/2018.
  */
 public class Game extends JPanel{
 

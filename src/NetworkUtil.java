@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by sahar.shukrun on 11/19/2017.
+ * Created by John Smith on 3/4/2018.
  */
 
 public class NetworkUtil {
