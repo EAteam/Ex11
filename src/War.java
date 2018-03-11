@@ -42,12 +42,20 @@ public class War {
         while (true) {
 
             // Validity check
+            if (false == checkAndUpdateDecks(game.player1Deck, game.player1) && false == checkAndUpdateDecks(game.player2Deck, game.player2)) {
+                JOptionPane.showMessageDialog(null,
+                        "Draw");
+                break;
+            }
+
             if (false == checkAndUpdateDecks(game.player1Deck, game.player1)) {
-                System.out.println("Player 1 lose | Player 2 win");
+                JOptionPane.showMessageDialog(null,
+                        "Player 1 lose | Player 2 win");
                 break;
             }
             if ( false == checkAndUpdateDecks(game.player2Deck, game.player2)) {
-                System.out.println("Player 1 win | Player 2 lose");
+                JOptionPane.showMessageDialog(null,
+                        "Player 1 win | Player 2 lose");
                 break;
             }
 
@@ -56,27 +64,32 @@ public class War {
             Card p2 = game.player2Deck.getCard();
 
             if (state == 1 && counter > 0) {
-                System.out.println("Add Card to deck");
+                JOptionPane.showMessageDialog(null,
+                        "Player 1 and Player 2 Add Card to deck");
                 counter --;
                 game.gameDeck.addCard(p1);
                 game.gameDeck.addCard(p2);
                 continue;
             }
 
-            System.out.println(String.format("Player 1 card:%s vs Player 2 card:%s", p1.getRankString() +"["+ p1.getSuitString()+"]", p2.getRankString() +"["+ p2.getSuitString()+"]"));
+            String s = (String.format("%s vs %s", p1.getRankString() +" ["+ p1.getSuitString()+"]", p2.getRankString() +" ["+ p2.getSuitString()+"]"));
+            JOptionPane.showMessageDialog(null,
+                    s);
             //System.out.println(p1.getRank()+" vs "+ p2.getRank());
             int res = p1.compareTo(p2);
             switch (res) {
                 case 0:
                     state = 1; // war state
-                    System.out.println("War");
+                    JOptionPane.showMessageDialog(null,
+                            "War");
                     game.gameDeck.addCard(p1);
                     game.gameDeck.addCard(p2);
                     counter = 3;
                     break;
                 case 1:
                     state = 0;
-                    System.out.println("Player 1 get cards");
+                    JOptionPane.showMessageDialog(null,
+                            "Player 1 get cards");
                     game.player1.addCard(p1);
                     game.player1.addCard(p2);
                     if (state == 1) {
@@ -85,7 +98,8 @@ public class War {
                     break;
                 case -1:
                     state = 0;
-                    System.out.println("Player 2 get cards");
+                    JOptionPane.showMessageDialog(null,
+                            "Player 2 get cards");
                     game.player2.addCard(p1);
                     game.player2.addCard(p2);
                     if (state == 1) {
